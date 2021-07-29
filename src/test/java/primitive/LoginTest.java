@@ -14,9 +14,9 @@ public class LoginTest {
     JSONDataConfig jsonDataConfig = new JSONDataConfig("src/main/resources/data.json");
 
 
-    @Test
-    public void verifyUserIsSuccessfullyLoggedIn(){
-        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
+    @Test(description = "Verify user is successfully logged in with appropriate credentials")
+    public void verifyUserIsSuccessfullyLoggedIn() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         driver.manage().window().maximize();
@@ -42,13 +42,12 @@ public class LoginTest {
 
         Assert.assertTrue(userInfoName.isDisplayed());
 
-
         driver.quit();
     }
 
-    @Test
-    public void verifyUserCanNotLoginWithWrongPassword(){
-        System.setProperty("webdriver.chrome.driver","src/main/resources/chromedriver.exe");
+    @Test(description = "Verify user receives an error message when trying to log in with incorrect credentials")
+    public void verifyUserCanNotLoginWithWrongPassword() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
         driver.manage().window().maximize();
@@ -71,10 +70,9 @@ public class LoginTest {
         signInButtonForLogin.click();
 
         WebElement errorMessage = driver.findElement(By.className("error-text"));
-        String errorMessageText =errorMessage.getAttribute("innerHTML");
+        String errorMessageText = errorMessage.getAttribute("innerHTML");
         String expectedError = "We can't find user with such credentials.";
-        Assert.assertEquals(errorMessageText,expectedError, "error message NOT displayed - something went wrong");
-
+        Assert.assertEquals(errorMessageText, expectedError, "error message NOT displayed - something went wrong");
 
         driver.quit();
     }
