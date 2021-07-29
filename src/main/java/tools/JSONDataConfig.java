@@ -30,4 +30,8 @@ public class JSONDataConfig {
     public String getPasswordFromJson(int user_index) {
         return listUser.get(user_index).getPassword();
     }
+
+    public String getNameFromJson(int user_index) {
+        return listUser.get(user_index).getName();
+    }
 }
