@@ -4,7 +4,8 @@ public enum DriverConfig {
 
     CHROME_NAME("webdriver.chrome.driver"),
     CHROME_DRIVER_LOCATION("src/main/resources/chromedriver.exe"),
-    IMPLICITLY_WAIT(10);
+    IMPLICITLY_WAIT(10),
+    EXPLICITLY_WAIT(10);
 
     String path;
     long seconds;
