@@ -12,7 +12,7 @@ public class CustomDriver {
 
     protected void initDriver(final String browserName) {
 
-        if (DriverConfig.CHROME_NAME.equals(browserName)) {
+        if (DriverConfig.CHROME_NAME.getPath().equals(browserName)) {
             System.setProperty(DriverConfig.CHROME_NAME.getPath(), DriverConfig.CHROME_DRIVER_LOCATION.getPath());
             webDriver = new ChromeDriver();
         }
