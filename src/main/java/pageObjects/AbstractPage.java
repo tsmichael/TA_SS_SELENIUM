@@ -13,7 +13,7 @@ import java.util.List;
 
 public class AbstractPage {
 
-    private static WebDriverWait wait = new WebDriverWait(CustomDriver.getDriver(), DriverConfig.EXPLICITLY_WAIT.getSeconds());
+    private WebDriverWait wait = new WebDriverWait(CustomDriver.getDriver(), DriverConfig.EXPLICITLY_WAIT.getSeconds());
 
     AbstractPage() {
     }
