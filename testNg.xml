@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression">
+    <test name="testio">
+        <parameter name="emailWithoutAt" value="username.com"></parameter>
+        <parameter name="emailWithAtAtStart" value="@gmail.com"></parameter>
+        <parameter name="emailWithoutDot" value="username@gmail"></parameter>
+        <classes>
+            <class name="EmailFieldTest">
+                <methods>
+                    <include name="verifyContinueButtonIsDisabledWithEmailWithoutAtSymbol"></include>
+                    <include name="verifyContinueButtonIsDisabledWithEmailAtSymbolAtStart"></include>
+                    <include name="verifyContinueButtonIsDisabledWithEmailWithoutDot"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
