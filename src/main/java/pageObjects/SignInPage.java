@@ -24,6 +24,11 @@ public class SignInPage extends AbstractPage {
         return this;
     }
 
+    public boolean isContinueButtonEnabled() {
+        boolean isEnabled = isEnabled(continueButton);
+        return isEnabled;
+    }
+
     public SignInPage enterPassword(String password) {
         getElement(passwordInput).sendKeys(password);
         return this;
@@ -39,4 +44,28 @@ public class SignInPage extends AbstractPage {
         return isDisplayed;
     }
 
+    public String getEmailText() {
+        return getElement(emailInput).getText();
+    }
+
+    public boolean isAtSymbolPresentInEmailField() {
+        String email = getEmailText();
+        boolean present = email.contains("@");
+        return present;
+    }
+
+    public boolean isAtSymbolAtStartInEmailField() {
+        String email = getEmailText();
+        char firstSign = email.charAt(0);
+        if (firstSign == '@') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isDotSymbolPresent() {
+        String email = getEmailText();
+        return email.contains("@");
+    }
 }

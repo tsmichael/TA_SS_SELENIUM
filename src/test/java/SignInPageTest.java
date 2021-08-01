@@ -1,4 +1,5 @@
 import constants.BusinessConfig;
+import data.EmailsDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.businessObjects.HomeBO;
 import pageObjects.businessObjects.SignInBO;
@@ -32,5 +33,19 @@ public class SignInPageTest extends BaseTest {
                 .clickSignInButton();
         new SignInBO()
                 .verifyFailedLoginErrorMessageDisplayed();
+    }
+
+    @Test(priority = 3,
+            description = "verify that button is disabled when user enter invalid email address",
+            dataProvider = "incorrectEmailsProvider", dataProviderClass = EmailsDataProvider.class)
+    public void ttt(String email) {
+        new HomeBO()
+                .proceedToHomePage()
+                .clickSignInButton()
+                .enterEmail(email);
+        new SignInBO()
+                .isEmailNotMatchCriteria(email);
+        new SignInBO()
+                .verifyContinueButtonIsDisabled();
     }
 }

@@ -39,4 +39,13 @@ public class AbstractPage {
             return false;
         }
     }
+
+    public boolean isEnabled(By locator) {
+        try {
+            return getElement(locator)
+                    .isEnabled();
+        } catch (NoSuchElementException | TimeoutException e) {
+            return false;
+        }
+    }
 }
