@@ -45,7 +45,7 @@ public class SignInPage extends AbstractPage {
     }
 
     public String getEmailText() {
-        return getElement(emailInput).getText();
+        return getElement(emailInput).getAttribute("value");
     }
 
     public boolean isAtSymbolPresentInEmailField() {
@@ -56,16 +56,16 @@ public class SignInPage extends AbstractPage {
 
     public boolean isAtSymbolAtStartInEmailField() {
         String email = getEmailText();
-        char firstSign = email.charAt(0);
-        if (firstSign == '@') {
+        Character firstSign = email.charAt(0);
+        if (firstSign.equals("@")) {
             return true;
         } else {
             return false;
         }
     }
 
-    public boolean isDotSymbolPresent() {
+    public boolean isDotSymbolPresentInEmail() {
         String email = getEmailText();
-        return email.contains("@");
+        return email.contains(".");
     }
 }
