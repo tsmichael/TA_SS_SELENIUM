@@ -22,7 +22,8 @@ public class SignInBO extends SignInPage {
     }
 
     public void isEmailNotMatchCriteria(String email) {
-        Assert.assertFalse(Regex.isEmailValid(email), "e-mail is VALID, check e-mail criteria options");
+        String errorMessage = "'" + email + "' match email-criteria";
+        Assert.assertFalse(Regex.isEmailValid(email), String.format("%s", errorMessage));
     }
 
     public void verifyAtSymbolNotPresentInEmail() {

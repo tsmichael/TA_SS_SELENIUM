@@ -12,6 +12,6 @@ public class HomeBO extends HomePage {
     }
 
     public void verifyTopRightUserNameIsDisplayed(){
-        Assert.assertTrue(isUserNameIsDisplayed());
+        Assert.assertTrue(isUserNameIsDisplayed(), "user name is NOT displayed");
     }
 }
