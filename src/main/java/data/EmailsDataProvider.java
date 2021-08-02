@@ -13,5 +13,17 @@ public class EmailsDataProvider {
                 {"user.name@gmail"}
         };
     }
+
+    @DataProvider(name = "validByBVAEmailsProvider")
+    public static Object[][] getValidByBVAEmailsFromDataProvider() {
+        return new Object[][]{
+                {"mykhailotsalan@gmail.ua"},
+                {"mykhailotsalan@gmail.com"},
+                {"mykhailotsalan@gmail.comcomcom"},
+                {"mykhailotsalan@gmail.strawberry"},
+                {"ananasananasananasananasananasananasananasananasananasananasana@gmail.ua"},
+                {"ananasananasananasananasananasananasananasananasananasananasanas@gmail.ua"}
+        };
+    }
 }
 

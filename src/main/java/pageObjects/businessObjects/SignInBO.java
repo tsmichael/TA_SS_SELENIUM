@@ -21,9 +21,16 @@ public class SignInBO extends SignInPage {
         return new HomeBO();
     }
 
-    public void isEmailNotMatchCriteria(String email) {
+    public void isEmailNotMatchCriteria() {
+        String email = getEmailText();
         String errorMessage = "'" + email + "' match email-criteria";
         Assert.assertFalse(Regex.isEmailValid(email), String.format("%s", errorMessage));
+    }
+
+    public void isEmailMatchCriteria() {
+        String email = getEmailText();
+        String errorMessage = "'" + email + "' DOES NOT match email-criteria";
+        Assert.assertTrue(Regex.isEmailValid(email), String.format("%s", errorMessage));
     }
 
     public void verifyAtSymbolNotPresentInEmail() {
@@ -45,6 +52,10 @@ public class SignInBO extends SignInPage {
     }
 
     public void verifyContinueButtonIsDisabled() {
-        Assert.assertFalse(isContinueButtonEnabled(), "'Continue Button' is enabled");
+        Assert.assertFalse(isContinueButtonEnabled(), "'Continue Button' is ENABLED");
+    }
+
+    public void verifyContinueButtonIsEnabled() {
+        Assert.assertTrue(isContinueButtonEnabled(), "'Continue Button' is DISABLED");
     }
 }

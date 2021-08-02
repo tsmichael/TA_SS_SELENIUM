@@ -38,14 +38,28 @@ public class SignInPageTest extends BaseTest {
     @Test(priority = 3,
             description = "verify that button is disabled when user enter invalid email address",
             dataProvider = "incorrectEmailsProvider", dataProviderClass = EmailsDataProvider.class)
-    public void ttt(String email) {
+    public void verifyContinueButtonIsDisabledWithInvalidEmail(String email) {
         new HomeBO()
                 .proceedToHomePage()
                 .clickSignInButton()
                 .enterEmail(email);
         new SignInBO()
-                .isEmailNotMatchCriteria(email);
+                .isEmailNotMatchCriteria();
         new SignInBO()
                 .verifyContinueButtonIsDisabled();
+    }
+
+    @Test(priority = 4,
+            description = "Verify Continue button is enabled when user enters an appropriate email address",
+            dataProvider = "validByBVAEmailsProvider", dataProviderClass = EmailsDataProvider.class)
+    public void verifyContinueButtonIsEnabledWithValidEmail(String email){
+        new HomeBO()
+                .proceedToHomePage()
+                .clickSignInButton()
+                .enterEmail(email);
+        new SignInBO()
+                .isEmailMatchCriteria();
+        new SignInBO()
+                .verifyContinueButtonIsEnabled();
     }
 }
