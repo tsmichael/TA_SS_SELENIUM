@@ -39,7 +39,6 @@ public class SignInBO extends SignInPage {
         Assert.assertFalse(isDotSymbolPresentInEmail(), "'.' is present in email");
     }
 
-
     public void verifyFailedLoginErrorMessageDisplayed() {
         Assert.assertTrue(isLoginFailedErrorMessageDisplayed(),
                 "'Login failed' error message is not displayed");
@@ -48,5 +47,4 @@ public class SignInBO extends SignInPage {
     public void verifyContinueButtonIsDisabled() {
         Assert.assertFalse(isContinueButtonEnabled(), "'Continue Button' is enabled");
     }
-
 }
