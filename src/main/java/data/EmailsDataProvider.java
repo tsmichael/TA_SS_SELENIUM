@@ -10,7 +10,9 @@ public class EmailsDataProvider {
                 {"username.com"},
                 {"@gmail.com"},
                 {"username@gmail"},
-                {"user.name@gmail"}
+                {"user.name@gmail"},
+                {"user.name@gmail.c"},
+                {"user.name@gmail.comcomcomco"}
         };
     }
 
