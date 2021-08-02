@@ -2,16 +2,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Regression">
-    <test name="testio">
-        <parameter name="emailWithoutAt" value="username.com"></parameter>
-        <parameter name="emailWithAtAtStart" value="@gmail.com"></parameter>
-        <parameter name="emailWithoutDot" value="username@gmail"></parameter>
+
+    <test name="SignInPageTest">
         <classes>
-            <class name="EmailFieldTest">
+            <class name="SignInPageTest">
+            </class>
+        </classes>
+    </test>
+
+    <test name="changeLang">
+        <parameter name="language" value="English"></parameter>
+        <classes>
+            <class name="HomePageTest">
                 <methods>
-                    <include name="verifyContinueButtonIsDisabledWithEmailWithoutAtSymbol"></include>
-                    <include name="verifyContinueButtonIsDisabledWithEmailAtSymbolAtStart"></include>
-                    <include name="verifyContinueButtonIsDisabledWithEmailWithoutDot"></include>
+                    <include name="aaa"></include>
                 </methods>
             </class>
         </classes>
