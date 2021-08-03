@@ -28,7 +28,8 @@ public class AbstractPage {
     }
 
     List<WebElement> getElements(By locator) {
-        return CustomDriver.getDriver().findElements(locator);
+        List<WebElement> webElements = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+        return webElements;
     }
 
     public boolean isDisplayed(By locator) {
