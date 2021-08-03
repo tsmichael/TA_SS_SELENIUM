@@ -11,6 +11,16 @@ public class HomeBO extends HomePage {
         homePage = new HomePage();
     }
 
+    public HomeBO proceedToHomePage(){
+        homePage.proceedToHomePage();
+        return this;
+    }
+
+    public SignInBO clickSignInButton(){
+        homePage.clickSignInButton();
+        return new SignInBO();
+    }
+
     public void verifyTopRightUserNameIsDisplayed(){
         Assert.assertTrue(isUserNameIsDisplayed(), "user name is NOT displayed");
     }
