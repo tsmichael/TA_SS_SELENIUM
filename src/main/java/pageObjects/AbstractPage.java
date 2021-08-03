@@ -1,5 +1,6 @@
 package pageObjects;
 
+import constants.ConstantConfig;
 import constants.DriverConfig;
 import driver.CustomDriver;
 import org.openqa.selenium.By;
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class AbstractPage {
 
-    private WebDriverWait wait = new WebDriverWait(CustomDriver.getDriver(), DriverConfig.EXPLICITLY_WAIT.getSeconds());
+    private WebDriverWait wait = new WebDriverWait(CustomDriver.getDriver(), ConstantConfig.EXPLICITLY_WAIT.getSeconds());
 
     AbstractPage() {
     }
