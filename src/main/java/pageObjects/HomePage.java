@@ -1,6 +1,5 @@
 package pageObjects;
 
-import constants.BusinessConfig;
 import org.openqa.selenium.By;
 import org.testng.log4testng.Logger;
 
@@ -16,7 +15,7 @@ public class HomePage extends AbstractPage {
 
     public HomePage proceedToHomePage() {
         proceedToPage(HOME_PAGE_URL.getPath());
-        LOG.info(String.format("Proceeded to '%s' URL.",HOME_PAGE_URL.getPath()));
+        LOG.info(String.format("Proceeded to '%s' URL.", HOME_PAGE_URL.getPath()));
         return this;
     }
 
@@ -26,9 +25,9 @@ public class HomePage extends AbstractPage {
         return new SignInPage();
     }
 
-    public boolean isUserNameIsDisplayed(){
+    public boolean isUserNameIsDisplayed() {
         boolean isDisplayed = isDisplayed(topRightCornerUserName);
-        LOG.info(String.format("User is logged in: '%s'",isDisplayed));
+        LOG.info(String.format("User is logged in: '%s'", isDisplayed));
         return isDisplayed;
     }
 }

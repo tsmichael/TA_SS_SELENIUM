@@ -52,7 +52,7 @@ public class SignInPageTest extends BaseTest {
     @Test(priority = 4,
             description = "Verify Continue button is enabled when user enters an appropriate email address",
             dataProvider = "validByBVAEmailsProvider", dataProviderClass = EmailsDataProvider.class)
-    public void verifyContinueButtonIsEnabledWithValidEmail(String email){
+    public void verifyContinueButtonIsEnabledWithValidEmail(String email) {
         new HomeBO()
                 .proceedToHomePage()
                 .clickSignInButton()

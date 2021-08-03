@@ -1,7 +1,6 @@
 package pageObjects.businessObjects;
 
 import org.testng.Assert;
-import org.testng.asserts.SoftAssert;
 import pageObjects.SignInPage;
 import tools.Regex;
 
@@ -21,22 +20,22 @@ public class SignInBO extends SignInPage {
         return new HomeBO();
     }
 
-    public SignInBO enterEmail(String email){
+    public SignInBO enterEmail(String email) {
         signInPage.enterEmail(email);
         return this;
     }
 
-    public SignInBO clickContinueButton(){
+    public SignInBO clickContinueButton() {
         signInPage.clickSignInButton();
         return this;
     }
 
-    public SignInBO enterPassword(String password){
+    public SignInBO enterPassword(String password) {
         signInPage.enterPassword(password);
         return this;
     }
 
-    public HomeBO clickSignInButton(){
+    public HomeBO clickSignInButton() {
         signInPage.clickSignInButton();
         return new HomeBO();
     }
@@ -58,7 +57,6 @@ public class SignInBO extends SignInPage {
     }
 
     public void verifyAtSymbolAtStartInEmail() {
-        SoftAssert softAssert = new SoftAssert();
         Assert.assertFalse(isAtSymbolAtStartInEmailField(), "'@' is not placed at beginning");
     }
 
