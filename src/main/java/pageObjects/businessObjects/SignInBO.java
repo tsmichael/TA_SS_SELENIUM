@@ -31,6 +31,16 @@ public class SignInBO extends SignInPage {
         return this;
     }
 
+    public SignInBO enterPassword(String password){
+        signInPage.enterPassword(password);
+        return this;
+    }
+
+    public HomeBO clickSignInButton(){
+        signInPage.clickSignInButton();
+        return new HomeBO();
+    }
+
     public void isEmailNotMatchCriteria() {
         String email = getEmailText();
         String errorMessage = "'" + email + "' match email-criteria";
