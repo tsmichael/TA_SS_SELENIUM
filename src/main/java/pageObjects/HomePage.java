@@ -1,5 +1,6 @@
 package pageObjects;
 
+import constants.NavElements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.log4testng.Logger;
@@ -22,10 +23,23 @@ public class HomePage extends AbstractPage {
 
     private By topRightCornerUserName = By.className("user-info__name");
 
+    private String trainingListLocatorUnLogin = (String.format("//a[contains(@class,'main-nav__item') and contains(@href,'%s')]", NavElements.TRAINING_LIST.getLink()));
+    private String trainingListLocator = (String.format("//ul[@class='main-nav__list']//a[contains(@href,'%s')]", NavElements.TRAINING_LIST.getLink()));
+
+    private By trainingList = By.xpath(trainingListLocator);
+
+    private By acceptCookiesButton = By.className("footer-modal__button");
+
     public HomePage proceedToHomePage() {
         proceedToPage(HOME_PAGE_URL.getPath());
         LOG.info(String.format("Proceeded to '%s' URL.", HOME_PAGE_URL.getPath()));
         return this;
+    }
+
+    public TrainingListPage proceedToTrainingListPage() {
+        getElement(trainingList).click();
+        LOG.info(String.format("Proceeded to '%s' URL.", NavElements.TRAINING_LIST.getLink()));
+        return new TrainingListPage();
     }
 
     public HomePage clickGlobeIcon() {
@@ -64,6 +78,12 @@ public class HomePage extends AbstractPage {
 
     public HomePage clickLanguageItem(String language) {
         getLanguageElementByName(language).click();
+        return this;
+    }
+
+    public HomePage clickAcceptCookiesButton() {
+
+        getElement(acceptCookiesButton).click();
         return this;
     }
 }

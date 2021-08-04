@@ -16,6 +16,11 @@ public class HomeBO extends HomePage {
         return this;
     }
 
+    public TrainingListBO proceedToTrainingListPage() {
+        homePage.proceedToTrainingListPage();
+        return new TrainingListBO();
+    }
+
     public HomeBO clickGlobeIcon() {
         homePage.clickGlobeIcon();
         return this;
@@ -24,6 +29,11 @@ public class HomeBO extends HomePage {
     public SignInBO clickSignInButton() {
         homePage.clickSignInButton();
         return new SignInBO();
+    }
+
+    public HomeBO clickAcceptCookiesButton() {
+        homePage.clickAcceptCookiesButton();
+        return this;
     }
 
     public void verifyTopRightUserNameIsDisplayed() {
