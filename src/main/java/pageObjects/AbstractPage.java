@@ -1,7 +1,6 @@
 package pageObjects;
 
 import constants.ConstantConfig;
-import constants.DriverConfig;
 import driver.CustomDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -26,6 +25,11 @@ public class AbstractPage {
     WebElement getElement(By locator) {
         WebElement webElement = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return webElement;
+    }
+
+    public void waitForPageTranslateItself(String lang) {
+        String link = "lang=" + lang;
+        wait.until(ExpectedConditions.urlContains(link));
     }
 
     List<WebElement> getElements(By locator) {

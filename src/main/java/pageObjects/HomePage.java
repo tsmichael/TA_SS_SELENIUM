@@ -16,7 +16,6 @@ public class HomePage extends AbstractPage {
 
     private By globeIcon = By.className("location-selector__globe");
 
-    //private By languageList = By.xpath("//div[contains(@class,'location-selector__item')]/a");
     private By languageList = By.cssSelector(".location-selector__item a");
 
     private By trainingSection = By.cssSelector("#training-list h1");
@@ -61,5 +60,10 @@ public class HomePage extends AbstractPage {
             }
         }
         return item;
+    }
+
+    public HomePage clickLanguageItem(String language) {
+        getLanguageElementByName(language).click();
+        return this;
     }
 }

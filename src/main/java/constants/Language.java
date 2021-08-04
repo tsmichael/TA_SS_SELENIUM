@@ -2,16 +2,18 @@ package constants;
 
 public enum Language {
 
-    ENGLISH("English", "SIGN IN"),
-    RUSSIAN("Русский", "ВОЙТИ"),
-    UKRAINIAN("Українська", "УВІЙТИ");
+    ENGLISH("English", "SIGN IN", "eng"),
+    RUSSIAN("Русский", "ВОЙТИ", "ru"),
+    UKRAINIAN("Українська", "УВІЙТИ", "ua");
 
     String language;
     String signInButtonText;
+    String domain;
 
-    Language(String language, String signInButtonText) {
+    Language(String language, String signInButtonText, String domain) {
         this.language = language;
         this.signInButtonText = signInButtonText;
+        this.domain = domain;
     }
 
     public String getLanguage() {
@@ -22,5 +24,8 @@ public enum Language {
         return signInButtonText;
     }
 
+    public String getDomain() {
+        return this.domain;
+    }
 
 }

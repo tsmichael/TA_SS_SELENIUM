@@ -30,14 +30,15 @@ public class HomeBO extends HomePage {
         Assert.assertTrue(isUserNameIsDisplayed(), "user name is NOT displayed");
     }
 
-    public HomeBO chooseLanguageByName(String language) {
+    public HomeBO chooseLanguageByName(String language, String domain) {
         homePage.clickGlobeIcon()
-                .getLanguageElementByName(language).click();
-        return new HomeBO();
+                .clickLanguageItem(language)
+                .waitForPageTranslateItself(domain);
+        return this;
     }
 
     public void verifyLanguageBySignInButtonText(String buttonText) {
         String signInButtonText = homePage.getSignInButtonText();
-        Assert.assertEquals(signInButtonText, buttonText, String.format("'%s' text NOT match with picked language", signInButtonText));
+        Assert.assertEquals(signInButtonText, buttonText, String.format("'%s' button incorrect translated", signInButtonText));
     }
 }
