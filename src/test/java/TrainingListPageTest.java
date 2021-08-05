@@ -9,7 +9,7 @@ public class TrainingListPageTest extends BaseTest {
 
     JSONDataConfig jsonDataConfig = new JSONDataConfig(BusinessConfig.USER_CREDENTIALS.getPath());
 
-    @Test
+    @Test( description = "Verify Search result that display only appropriate courses with 'By Skill' filter")
     public void verifyTrainingListSearchResultBySkill() {
         HomeBO homeBo = new HomeBO();
         homeBo
@@ -23,7 +23,7 @@ public class TrainingListPageTest extends BaseTest {
                 .verifyAllElementsContainsAppropriateText(SkillsConfig.JAVA.getSkillName());
     }
 
-    @Test
+    @Test ( description = "Verify that message is displayed when training list in empty")
     public void verifyErrorMessageOfEmptyTrainingListDisplayed() {
         HomeBO homeBo = new HomeBO();
         homeBo
@@ -37,7 +37,7 @@ public class TrainingListPageTest extends BaseTest {
                 .verifyEmptyTrainingListMessageIsDisplayed();
     }
 
-    @Test
+    @Test ( description = "Verify Search result that display only appropriate courses with 'By Location' filter")
     public void verifySearchResultWithLocationCountryCityFilter() {
         new HomeBO()
                 .proceedToHomePage()
