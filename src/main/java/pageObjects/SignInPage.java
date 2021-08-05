@@ -13,7 +13,7 @@ public class SignInPage extends AbstractPage {
 
     private By continueButton = By.id("kc-login-next");
 
-    private By signInButton = By.id("kc-login");
+    private By signInButton = By.name("login");//By.id("kc-login");
 
     private By loginFailedErrorMessage = By.className("error-text");
 

@@ -9,7 +9,7 @@ public class SignInPageTest extends BaseTest {
 
     JSONDataConfig jsonDataConfig = new JSONDataConfig(BusinessConfig.USER_CREDENTIALS.getPath());
 
-    @Test(priority = 1, description = "Verify user is successfully logged in with appropriate credentials")
+    @Test(description = "Verify user is successfully logged in with appropriate credentials")
     public void verifyUserIsSuccessfullyLoggedIn() {
         HomeBO homeBO = new HomeBO();
         homeBO
@@ -21,7 +21,7 @@ public class SignInPageTest extends BaseTest {
                 .verifyTopRightUserNameIsDisplayed();
     }
 
-    @Test(priority = 2, description = "Verify user receives an error message when trying to log in with incorrect credentials")
+    @Test(description = "Verify user receives an error message when trying to log in with incorrect credentials")
     public void verifyUserCanNotLoginWithWrongPassword() {
         HomeBO homeBO = new HomeBO();
         homeBO
@@ -35,7 +35,7 @@ public class SignInPageTest extends BaseTest {
                 .verifyFailedLoginErrorMessageDisplayed();
     }
 
-    @Test(priority = 3,
+    @Test(
             description = "verify that button is disabled when user enter invalid email address",
             dataProvider = "incorrectEmailsProvider", dataProviderClass = EmailsDataProvider.class)
     public void verifyContinueButtonIsDisabledWithInvalidEmail(String email) {
@@ -49,7 +49,7 @@ public class SignInPageTest extends BaseTest {
                 .verifyContinueButtonIsDisabled();
     }
 
-    @Test(priority = 4,
+    @Test(
             description = "Verify Continue button is enabled when user enters an appropriate email address",
             dataProvider = "validByBVAEmailsProvider", dataProviderClass = EmailsDataProvider.class)
     public void verifyContinueButtonIsEnabledWithValidEmail(String email) {
