@@ -1,6 +1,7 @@
 package pageObjects;
 
 import constants.ConstantConfig;
+import constants.Language;
 import driver.CustomDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -40,8 +41,8 @@ public class AbstractPage {
         return webElement;
     }
 
-    public void waitForPageTranslateItself(String lang) {
-        String link = "lang=" + lang;
+    public void waitForPageTranslateItself(Language domain) {
+        String link = "lang=" + domain.getDomain();
         wait.until(ExpectedConditions.urlContains(link));
     }
 

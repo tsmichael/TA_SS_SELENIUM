@@ -8,7 +8,7 @@ public class HomePageTest extends BaseTest {
     public void verifyUserAbleChangeLanguage() {
         HomeBO homeBO = new HomeBO();
         homeBO.proceedToHomePage()
-                .chooseLanguageByName(Language.UKRAINIAN.getLanguage(),Language.UKRAINIAN.getDomain())
-                .verifyLanguageBySignInButtonText(Language.UKRAINIAN.getSignInButtonText());
+                .chooseLanguageByName(Language.UKRAINIAN,Language.UKRAINIAN)
+                .verifyLanguageBySignInButtonText(Language.UKRAINIAN);
     }
 }

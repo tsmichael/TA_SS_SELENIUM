@@ -1,5 +1,6 @@
 package pageObjects;
 
+import constants.Language;
 import constants.NavElements;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -87,8 +88,9 @@ public class HomePage extends AbstractPage {
         return item;
     }
 
-    public HomePage clickLanguageItem(String language) {
-        getLanguageElementByName(language).click();
+    public HomePage clickLanguageItem(Language language) {
+        String lang = language.getLanguage();
+        getLanguageElementByName(lang).click();
         LOG.info(String.format("'%s' language is picked.",language));
         return this;
     }

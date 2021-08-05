@@ -1,5 +1,6 @@
 package pageObjects.businessObjects;
 
+import constants.Language;
 import org.testng.Assert;
 import pageObjects.HomePage;
 
@@ -45,15 +46,15 @@ public class HomeBO {
         Assert.assertTrue(homePage.isUserNameIsDisplayed(), "user name is NOT displayed");
     }
 
-    public HomeBO chooseLanguageByName(String language, String domain) {
+    public HomeBO chooseLanguageByName(Language language, Language domain) {
         homePage.clickGlobeIcon()
                 .clickLanguageItem(language)
                 .waitForPageTranslateItself(domain);
         return this;
     }
 
-    public void verifyLanguageBySignInButtonText(String buttonText) {
+    public void verifyLanguageBySignInButtonText(Language buttonText) {
         String signInButtonText = homePage.getSignInButtonText();
-        Assert.assertEquals(signInButtonText, buttonText, String.format("'%s' button incorrect translated", signInButtonText));
+        Assert.assertEquals(signInButtonText, buttonText.getSignInButtonText(), String.format("'%s' button incorrect translated", signInButtonText));
     }
 }
