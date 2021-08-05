@@ -1,4 +1,5 @@
 import constants.BusinessConfig;
+import constants.LocationConfig;
 import constants.SkillsConfig;
 import org.testng.annotations.Test;
 import pageObjects.businessObjects.HomeBO;
@@ -34,5 +35,18 @@ public class TrainingListPageTest extends BaseTest {
                 .closeAllFilters()
                 .addSkillToSearchByName(SkillsConfig.RUBY.getSkillName())
                 .verifyEmptyTrainingListMessageIsDisplayed();
+    }
+
+    @Test
+    public void verifySearchResultWithLocationCountryCityFilter() {
+        new HomeBO()
+                .proceedToHomePage()
+                .clickAcceptCookiesButton()
+                .clickSignInButton()
+                .login(jsonDataConfig.getEmailFromJson(0), jsonDataConfig.getPasswordFromJson(0))
+                .proceedToTrainingListPage()
+                .closeAllFilters()
+                .addLocationToSearchByName(LocationConfig.LVIV)
+                .verifyAllElementsBelongsToAppropriateCountyOrMultiLocation(LocationConfig.LVIV);
     }
 }
