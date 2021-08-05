@@ -21,6 +21,11 @@ public class HomeBO extends HomePage {
         return new TrainingListBO();
     }
 
+    public BlogBO proceedToBlogPage() {
+        homePage.proceedToBlogPage();
+        return new BlogBO();
+    }
+
     public HomeBO clickGlobeIcon() {
         homePage.clickGlobeIcon();
         return this;

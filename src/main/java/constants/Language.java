@@ -2,7 +2,7 @@ package constants;
 
 public enum Language {
 
-    ENGLISH("English", "SIGN IN", "eng"),
+    ENGLISH("English", "SIGN IN", "en"),
     RUSSIAN("Русский", "ВОЙТИ", "ru"),
     UKRAINIAN("Українська", "УВІЙТИ", "ua");
 

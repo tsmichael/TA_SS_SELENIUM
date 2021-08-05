@@ -24,9 +24,14 @@ public class HomePage extends AbstractPage {
     private By topRightCornerUserName = By.className("user-info__name");
 
     private String trainingListLocatorUnLogin = (String.format("//a[contains(@class,'main-nav__item') and contains(@href,'%s')]", NavElements.TRAINING_LIST.getLink()));
+
     private String trainingListLocator = (String.format("//ul[@class='main-nav__list']//a[contains(@href,'%s')]", NavElements.TRAINING_LIST.getLink()));
 
     private By trainingList = By.xpath(trainingListLocator);
+
+    private String blogLocator = (String.format("//ul[@class='main-nav__list']//a[contains(@href,'%s')]", NavElements.BLOG.getLink()));
+
+    private By blog = By.xpath(blogLocator);
 
     private By acceptCookiesButton = By.className("footer-modal__button");
 
@@ -40,6 +45,12 @@ public class HomePage extends AbstractPage {
         getElement(trainingList).click();
         LOG.info(String.format("Proceeded to '%s' URL.", NavElements.TRAINING_LIST.getLink()));
         return new TrainingListPage();
+    }
+
+    public BlogPage proceedToBlogPage() {
+        getElement(blog).click();
+        LOG.info(String.format("Proceeded to '%s' URL.",NavElements.BLOG.getLink()));
+        return new BlogPage();
     }
 
     public HomePage clickGlobeIcon() {
