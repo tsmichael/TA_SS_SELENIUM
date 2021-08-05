@@ -6,7 +6,7 @@ import pageObjects.businessObjects.HomeBO;
 public class BlogPageTest extends BaseTest{
 
     @Test
-    public void ttt(){
+    public void verifyBlogTitleLinksDisplay(){
         HomeBO homeBO = new HomeBO();
         homeBO
                 .proceedToHomePage()
