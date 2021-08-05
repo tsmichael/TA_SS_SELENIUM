@@ -11,7 +11,7 @@ public abstract class CustomDriver {
 
     private static WebDriver webDriver;
 
-    protected void initDriver(DriverConfig driverConfig) {
+    public static void initDriver(DriverConfig driverConfig) {
         if (webDriver == null) {
             if (DriverConfig.CHROME_NAME.equals(driverConfig)) {
                 System.setProperty(DriverConfig.CHROME_NAME.getPath(), DriverConfig.CHROME_DRIVER_LOCATION.getPath());
@@ -27,7 +27,7 @@ public abstract class CustomDriver {
         return webDriver;
     }
 
-    protected void quitDriver() {
+    public static void quitDriver() {
         if (webDriver != null) {
             webDriver.quit();
             webDriver = null;
