@@ -4,7 +4,7 @@ import org.testng.Assert;
 import pageObjects.SignInPage;
 import tools.Regex;
 
-public class SignInBO extends SignInPage {
+public class SignInBO {
 
     private SignInPage signInPage;
 
@@ -26,7 +26,7 @@ public class SignInBO extends SignInPage {
     }
 
     public SignInBO clickContinueButton() {
-        signInPage.clickSignInButton();
+        signInPage.clickContinueButton();
         return this;
     }
 
@@ -41,39 +41,39 @@ public class SignInBO extends SignInPage {
     }
 
     public void isEmailNotMatchCriteria() {
-        String email = getEmailText();
+        String email = signInPage.getEmailText();
         String errorMessage = "'" + email + "' match email-criteria";
         Assert.assertFalse(Regex.isEmailValid(email), String.format("%s", errorMessage));
     }
 
     public void isEmailMatchCriteria() {
-        String email = getEmailText();
+        String email = signInPage.getEmailText();
         String errorMessage = "'" + email + "' DOES NOT match email-criteria";
         Assert.assertTrue(Regex.isEmailValid(email), String.format("%s", errorMessage));
     }
 
     public void verifyAtSymbolNotPresentInEmail() {
-        Assert.assertFalse(isAtSymbolPresentInEmailField(), "entered email is contains '@' symbol");
+        Assert.assertFalse(signInPage.isAtSymbolPresentInEmailField(), "entered email is contains '@' symbol");
     }
 
     public void verifyAtSymbolAtStartInEmail() {
-        Assert.assertFalse(isAtSymbolAtStartInEmailField(), "'@' is not placed at beginning");
+        Assert.assertFalse(signInPage.isAtSymbolAtStartInEmailField(), "'@' is not placed at beginning");
     }
 
     public void verifyDotSymbolNotPresentInEmail() {
-        Assert.assertFalse(isDotSymbolPresentInEmail(), "'.' is present in email");
+        Assert.assertFalse(signInPage.isDotSymbolPresentInEmail(), "'.' is present in email");
     }
 
     public void verifyFailedLoginErrorMessageDisplayed() {
-        Assert.assertTrue(isLoginFailedErrorMessageDisplayed(),
+        Assert.assertTrue(signInPage.isLoginFailedErrorMessageDisplayed(),
                 "'Login failed' error message is not displayed");
     }
 
     public void verifyContinueButtonIsDisabled() {
-        Assert.assertFalse(isContinueButtonEnabled(), "'Continue Button' is ENABLED");
+        Assert.assertFalse(signInPage.isContinueButtonEnabled(), "'Continue Button' is ENABLED");
     }
 
     public void verifyContinueButtonIsEnabled() {
-        Assert.assertTrue(isContinueButtonEnabled(), "'Continue Button' is DISABLED");
+        Assert.assertTrue(signInPage.isContinueButtonEnabled(), "'Continue Button' is DISABLED");
     }
 }

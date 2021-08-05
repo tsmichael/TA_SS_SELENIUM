@@ -4,7 +4,7 @@ import constants.BlogNavElements;
 import org.testng.asserts.SoftAssert;
 import pageObjects.BlogPage;
 
-public class BlogBO extends BlogPage {
+public class BlogBO {
 
     private BlogPage blogPage;
 
@@ -15,7 +15,7 @@ public class BlogBO extends BlogPage {
     public void verifyAllBlogLinksIsDisplayed() {
         SoftAssert softAssert = new SoftAssert();
         for (BlogNavElements link : BlogNavElements.values()) {
-            softAssert.assertTrue(isDisplayed(blogPage.getBlogTitleLocatorByName(link.toString())),String.format("'%s' title is NOT displayed",link));
+            softAssert.assertTrue(blogPage.isDisplayed(blogPage.getBlogTitleLocatorByName(link.toString())),String.format("'%s' title is NOT displayed",link));
         }
         softAssert.assertAll();
     }

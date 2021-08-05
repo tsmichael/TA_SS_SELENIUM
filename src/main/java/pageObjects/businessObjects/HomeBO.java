@@ -3,7 +3,7 @@ package pageObjects.businessObjects;
 import org.testng.Assert;
 import pageObjects.HomePage;
 
-public class HomeBO extends HomePage {
+public class HomeBO {
 
     private HomePage homePage;
 
@@ -42,7 +42,7 @@ public class HomeBO extends HomePage {
     }
 
     public void verifyTopRightUserNameIsDisplayed() {
-        Assert.assertTrue(isUserNameIsDisplayed(), "user name is NOT displayed");
+        Assert.assertTrue(homePage.isUserNameIsDisplayed(), "user name is NOT displayed");
     }
 
     public HomeBO chooseLanguageByName(String language, String domain) {
