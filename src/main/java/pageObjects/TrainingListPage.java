@@ -65,7 +65,7 @@ public class TrainingListPage extends AbstractPage {
         return size;
     }
 
-    public void verifyEmptyTrainingListMessageIsDisplayed() {
-        Assert.assertTrue(isDisplayed(emptyListMessage), "TRAINING LIST is not empty.");
+    public boolean isEmptyListMessageIsDisplayed(){
+        return isDisplayed(emptyListMessage);
     }
 }
