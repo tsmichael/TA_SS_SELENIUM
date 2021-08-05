@@ -1,7 +1,7 @@
 package pageObjects;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.testng.log4testng.Logger;
 
 public class SignInPage extends AbstractPage {
 
@@ -13,7 +13,7 @@ public class SignInPage extends AbstractPage {
 
     private By continueButton = By.id("kc-login-next");
 
-    private By signInButton = By.name("login");//By.id("kc-login");
+    private By signInButton = By.name("login");
 
     private By loginFailedErrorMessage = By.className("error-text");
 

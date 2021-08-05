@@ -1,9 +1,9 @@
 package pageObjects;
 
 import constants.NavElements;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.log4testng.Logger;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import static constants.BusinessConfig.HOME_PAGE_URL;
 
 public class HomePage extends AbstractPage {
 
-    private static final Logger LOG = Logger.getLogger(SignInPage.class);
+    private static final Logger LOG = Logger.getLogger(HomePage.class);
 
     private By signInButton = By.className("header-auth__signin");
 
@@ -89,12 +89,13 @@ public class HomePage extends AbstractPage {
 
     public HomePage clickLanguageItem(String language) {
         getLanguageElementByName(language).click();
+        LOG.info(String.format("'%s' language is picked.",language));
         return this;
     }
 
     public HomePage clickAcceptCookiesButton() {
-
         getElement(acceptCookiesButton).click();
+        LOG.info(String.format("Button 'agree that we are spying on you' clicked"));
         return this;
     }
 }

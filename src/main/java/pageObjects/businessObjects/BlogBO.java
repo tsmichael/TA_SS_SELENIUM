@@ -15,7 +15,8 @@ public class BlogBO {
     public void verifyAllBlogLinksIsDisplayed() {
         SoftAssert softAssert = new SoftAssert();
         for (BlogNavElements link : BlogNavElements.values()) {
-            softAssert.assertTrue(blogPage.isDisplayed(blogPage.getBlogTitleLocatorByName(link.toString())),String.format("'%s' title is NOT displayed",link));
+            boolean isDisplayed = blogPage.isDisplayed(blogPage.getBlogTitleLocatorByName(link.toString()));
+            softAssert.assertTrue(isDisplayed, String.format("'%s' title is NOT displayed", link));
         }
         softAssert.assertAll();
     }
