@@ -1,4 +1,4 @@
-package constants;
+package constants.searchenum;
 
 public enum SkillsConfig {
 
