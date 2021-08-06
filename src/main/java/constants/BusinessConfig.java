@@ -5,7 +5,7 @@ public enum BusinessConfig {
     BASE_URL("https://training.by"),
     HOME_PAGE_URL(BASE_URL + "/#/Home"),
 
-    USER_CREDENTIALS("src/main/resources/data.json");
+    USER_CREDENTIALS("src/main/resources/users_cred.json");
 
     String path;
 

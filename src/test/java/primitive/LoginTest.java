@@ -1,18 +1,22 @@
 package primitive;
 
+import constants.BusinessConfig;
+import data.CustomUser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tools.JSONDataConfig;
+import tools.JsonReader;
 
 import java.util.concurrent.TimeUnit;
 
 public class LoginTest {
-    JSONDataConfig jsonDataConfig = new JSONDataConfig("src/main/resources/data.json");
 
+    JsonReader jsonReader = new JsonReader(BusinessConfig.USER_CREDENTIALS);
+    CustomUser validUser = jsonReader.getValidUser();
+    CustomUser invalidUser = jsonReader.getInvalidUser();
 
     @Test(description = "Verify user is successfully logged in with appropriate credentials")
     public void verifyUserIsSuccessfullyLoggedIn() {
@@ -27,13 +31,13 @@ public class LoginTest {
         signInButton.click();
 
         WebElement emailInput = driver.findElement(By.id("username"));
-        emailInput.sendKeys(jsonDataConfig.getEmailFromJson(0));
+        emailInput.sendKeys(validUser.email);
 
         WebElement continueButton = driver.findElement(By.id("kc-login-next"));
         continueButton.click();
 
         WebElement passwordInput = driver.findElement(By.id("password"));
-        passwordInput.sendKeys(jsonDataConfig.getPasswordFromJson(0));
+        passwordInput.sendKeys(validUser.password);
 
         WebElement signInButtonForLogin = driver.findElement(By.id("kc-login"));
         signInButtonForLogin.click();
@@ -58,13 +62,13 @@ public class LoginTest {
         signInButton.click();
 
         WebElement emailInput = driver.findElement(By.id("username"));
-        emailInput.sendKeys(jsonDataConfig.getEmailFromJson(1));
+        emailInput.sendKeys(invalidUser.email);
 
         WebElement continueButton = driver.findElement(By.id("kc-login-next"));
         continueButton.click();
 
         WebElement passwordInput = driver.findElement(By.id("password"));
-        passwordInput.sendKeys(jsonDataConfig.getPasswordFromJson(1));
+        passwordInput.sendKeys(invalidUser.password);
 
         WebElement signInButtonForLogin = driver.findElement(By.id("kc-login"));
         signInButtonForLogin.click();

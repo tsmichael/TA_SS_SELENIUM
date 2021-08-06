@@ -1,20 +1,14 @@
 package data;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class CustomUser {
 
-    String email;
-    String password;
-    String name;
+    @JsonProperty("email")
+    public String email;
+    @JsonProperty("password")
+    public String password;
+    @JsonProperty("name")
+    public String name;
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getName() {
-        return name;
-    }
 }

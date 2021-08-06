@@ -1,13 +1,15 @@
 import constants.BusinessConfig;
 import constants.LocationConfig;
 import constants.SkillsConfig;
+import data.CustomUser;
 import org.testng.annotations.Test;
 import pageObjects.businessObjects.HomeBO;
-import tools.JSONDataConfig;
+import tools.JsonReader;
 
 public class TrainingListPageTest extends BaseTest {
 
-    JSONDataConfig jsonDataConfig = new JSONDataConfig(BusinessConfig.USER_CREDENTIALS.getPath());
+    JsonReader jsonReader = new JsonReader(BusinessConfig.USER_CREDENTIALS);
+    CustomUser validUser = jsonReader.getValidUser();
 
     @Test(description = "Verify Search result that display only appropriate courses with 'By Skill' filter")
     public void verifyTrainingListSearchResultBySkill() {
@@ -15,7 +17,7 @@ public class TrainingListPageTest extends BaseTest {
                 .proceedToHomePage()
                 .clickAcceptCookiesButton()
                 .clickSignInButton()
-                .login(jsonDataConfig.getEmailFromJson(0), jsonDataConfig.getPasswordFromJson(0))
+                .login(validUser.email, validUser.password)
                 .proceedToTrainingListPage()
                 .closeAllFilters()
                 .addSkillToSearchByName(SkillsConfig.JAVA)
@@ -28,7 +30,7 @@ public class TrainingListPageTest extends BaseTest {
                 .proceedToHomePage()
                 .clickAcceptCookiesButton()
                 .clickSignInButton()
-                .login(jsonDataConfig.getEmailFromJson(0), jsonDataConfig.getPasswordFromJson(0))
+                .login(validUser.email, validUser.password)
                 .proceedToTrainingListPage()
                 .closeAllFilters()
                 .addSkillToSearchByName(SkillsConfig.RUBY)
@@ -41,7 +43,7 @@ public class TrainingListPageTest extends BaseTest {
                 .proceedToHomePage()
                 .clickAcceptCookiesButton()
                 .clickSignInButton()
-                .login(jsonDataConfig.getEmailFromJson(0), jsonDataConfig.getPasswordFromJson(0))
+                .login(validUser.email, validUser.password)
                 .proceedToTrainingListPage()
                 .closeAllFilters()
                 .addLocationToSearchByName(LocationConfig.LVIV)
