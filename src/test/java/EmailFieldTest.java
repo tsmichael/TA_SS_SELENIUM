@@ -3,11 +3,11 @@ import org.testng.annotations.Test;
 import pageObjects.businessObjects.HomeBO;
 import pageObjects.businessObjects.SignInBO;
 
-public class EmailFieldTest extends BaseTest{
+public class EmailFieldTest extends BaseTest {
 
     @Test
     @Parameters({"emailWithoutAt"})
-    public void verifyContinueButtonIsDisabledWithEmailWithoutAtSymbol(String emailWithoutAt){
+    public void verifyContinueButtonIsDisabledWithEmailWithoutAtSymbol(String emailWithoutAt) {
         new HomeBO()
                 .proceedToHomePage()
                 .clickSignInButton()
@@ -20,7 +20,7 @@ public class EmailFieldTest extends BaseTest{
 
     @Test
     @Parameters({"emailWithAtAtStart"})
-    public void verifyContinueButtonIsDisabledWithEmailAtSymbolAtStart(String emailWithAtAtStart){
+    public void verifyContinueButtonIsDisabledWithEmailAtSymbolAtStart(String emailWithAtAtStart) {
         new HomeBO()
                 .proceedToHomePage()
                 .clickSignInButton()
@@ -34,7 +34,7 @@ public class EmailFieldTest extends BaseTest{
 
     @Test
     @Parameters({"emailWithoutDot"})
-    public void verifyContinueButtonIsDisabledWithEmailWithoutDot(String emailWithoutDot){
+    public void verifyContinueButtonIsDisabledWithEmailWithoutDot(String emailWithoutDot) {
         new HomeBO()
                 .proceedToHomePage()
                 .clickSignInButton()

@@ -1,6 +1,7 @@
 package pageObjects.businessObjects;
 
 import constants.LocationConfig;
+import constants.SkillsConfig;
 import org.testng.Assert;
 import pageObjects.TrainingListPage;
 
@@ -17,11 +18,12 @@ public class TrainingListBO {
         return this;
     }
 
-    public TrainingListBO addSkillToSearchByName(String skill) {
+    public TrainingListBO addSkillToSearchByName(SkillsConfig skill) {
         trainingListPage
                 .clickSearchField()
                 .clickSearchBySkillsButton()
                 .clickSkillsCheckboxByName(skill)
+
         ;
         return this;
     }
@@ -36,7 +38,8 @@ public class TrainingListBO {
         return this;
     }
 
-    public void verifyAllElementsContainsAppropriateText(String skill) {
+    public void verifyAllElementsContainsAppropriateText(SkillsConfig skillName) {
+        String skill = skillName.getSkillName();
         Assert.assertEquals(trainingListPage.getTrainingsListSizeByTitleName(skill), trainingListPage.getTrainingsListSize(), String.format("NOT all courses has connection to '%s' skill filter.", skill));
     }
 

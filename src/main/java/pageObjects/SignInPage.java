@@ -31,7 +31,7 @@ public class SignInPage extends AbstractPage {
 
     public boolean isContinueButtonEnabled() {
         boolean isEnabled = isEnabled(continueButton);
-        LOG.info(String.format("'Continue' button ENABLED - [%s]",isEnabled));
+        LOG.info(String.format("'Continue' button ENABLED - [%s]", isEnabled));
         return isEnabled;
     }
 
@@ -49,7 +49,7 @@ public class SignInPage extends AbstractPage {
 
     public boolean isLoginFailedErrorMessageDisplayed() {
         boolean isDisplayed = isDisplayed(loginFailedErrorMessage);
-        LOG.info(String.format("Error message is displayed - [%s]",isDisplayed));
+        LOG.info(String.format("Error message is displayed - [%s]", isDisplayed));
         return isDisplayed;
     }
 

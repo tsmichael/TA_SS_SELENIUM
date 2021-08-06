@@ -50,7 +50,7 @@ public class HomePage extends AbstractPage {
 
     public BlogPage proceedToBlogPage() {
         getElement(blog).click();
-        LOG.info(String.format("Proceeded to '%s' URL.",NavElements.BLOG.getLink()));
+        LOG.info(String.format("Proceeded to '%s' URL.", NavElements.BLOG.getLink()));
         return new BlogPage();
     }
 
@@ -91,7 +91,7 @@ public class HomePage extends AbstractPage {
     public HomePage clickLanguageItem(Language language) {
         String lang = language.getLanguage();
         getLanguageElementByName(lang).click();
-        LOG.info(String.format("'%s' language is picked.",language));
+        LOG.info(String.format("'%s' language is picked.", language));
         return this;
     }
 

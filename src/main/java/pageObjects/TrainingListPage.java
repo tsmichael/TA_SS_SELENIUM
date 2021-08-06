@@ -1,6 +1,7 @@
 package pageObjects;
 
 import constants.LocationConfig;
+import constants.SkillsConfig;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
@@ -21,6 +22,8 @@ public class TrainingListPage extends AbstractPage {
     private By searchBySkillsButton = By.xpath("//div[@class='drop-down-choose__header']/div[contains(@ng-click,'Skill')]");
 
     private By searchByLocationsButton = By.xpath("//div[@class='drop-down-choose__header']/div[contains(@ng-click,'Location')]");
+
+    private By fieldForScrollInSkills = By.xpath("//label[@ng-class=\"{'location__location-active-label': checkActiveSkills()}\"]");
 
     private By fieldForScrollInLists = By.xpath("//div[contains(@class,'location__countryCheckBox')]");
 
@@ -55,7 +58,7 @@ public class TrainingListPage extends AbstractPage {
 
     public TrainingListPage clickSearchBySkillsButton() {
         getElement(searchBySkillsButton).click();
-        scrollToElement(getElement(fieldForScrollInLists));
+        scrollToElement(getElementPresence(fieldForScrollInSkills));
         LOG.info("'By Skills' tab clicked");
         return this;
     }
@@ -67,11 +70,12 @@ public class TrainingListPage extends AbstractPage {
         return this;
     }
 
-    public TrainingListPage clickSkillsCheckboxByName(String skillName) {
-        String locator = String.format("//ul[@class='city skills']//label[normalize-space()='%s']/span", skillName);
+    public TrainingListPage clickSkillsCheckboxByName(SkillsConfig skillName) {
+        String skill = skillName.getSkillName();
+        String locator = String.format("//label[@class='location__not-active-label ng-binding'][normalize-space()='%s']", skill);
         By searchBySkillsCheckbox = By.xpath(locator);
         getElement(searchBySkillsCheckbox).click();
-        LOG.info(String.format("'%s' checkbox clicked",skillName));
+        LOG.info(String.format("'%s' checkbox clicked", skill));
         return this;
     }
 
@@ -80,7 +84,7 @@ public class TrainingListPage extends AbstractPage {
         String locator = String.format("//ul[@class='location__countries-list-countries']//div[normalize-space()='%s']", countryName);
         By searchByLocationCountry = By.xpath(locator);
         getElement(searchByLocationCountry).click();
-        LOG.info(String.format("'%s' item clicked",countryName));
+        LOG.info(String.format("'%s' item clicked", countryName));
         return this;
 
     }
@@ -90,7 +94,7 @@ public class TrainingListPage extends AbstractPage {
         String locator = String.format("//ul[@class='location__cities-list-cities ng-scope']//label[normalize-space()='%s']", cityName);
         By searchByLocationCity = By.xpath(locator);
         getElement(searchByLocationCity).click();
-        LOG.info(String.format("'%s' checkbox clicked",cityName));
+        LOG.info(String.format("'%s' checkbox clicked", cityName));
         return this;
     }
 

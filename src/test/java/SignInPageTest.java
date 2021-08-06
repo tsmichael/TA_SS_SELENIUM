@@ -38,7 +38,7 @@ public class SignInPageTest extends BaseTest {
     @Test(
             description = "verify that button is disabled when user enter invalid email address",
             dataProvider = "incorrectEmailsProvider", dataProviderClass = EmailsDataProvider.class)
-    public void verifyContinueButtonIsDisabledWithInvalidEmail(String email) {
+    public void verifyContinueButtonIsDisabledWithInvalidEmail(String description, String email) {
         new HomeBO()
                 .proceedToHomePage()
                 .clickSignInButton()
@@ -52,7 +52,7 @@ public class SignInPageTest extends BaseTest {
     @Test(
             description = "Verify Continue button is enabled when user enters an appropriate email address",
             dataProvider = "validByBVAEmailsProvider", dataProviderClass = EmailsDataProvider.class)
-    public void verifyContinueButtonIsEnabledWithValidEmail(String email) {
+    public void verifyContinueButtonIsEnabledWithValidEmail(String description, String email) {
         new HomeBO()
                 .proceedToHomePage()
                 .clickSignInButton()
