@@ -3,19 +3,45 @@
 
 <suite name="Regression">
 
-    <test name="SignInPageTest">
+    <test name="[Positive] SignInPageTest">
         <classes>
             <class name="SignInPageTest">
+                <methods>
+                    <include name="verifyUserIsSuccessfullyLoggedIn"></include>
+                    <include name="verifyContinueButtonIsEnabledWithValidEmail"></include>
+                </methods>
             </class>
         </classes>
     </test>
 
-    <test name="changeLang">
-        <parameter name="language" value="English"></parameter>
+    <test name="[Negative] SignInPageTest">
         <classes>
-            <class name="HomePageTest">
+            <class name="SignInPageTest">
                 <methods>
-                    <include name="aaa"></include>
+                    <include name="verifyUserCanNotLoginWithWrongPassword"></include>
+                    <include name="verifyContinueButtonIsDisabledWithInvalidEmail"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="[Positive] BlogPageTest">
+        <classes>
+            <class name="BlogPageTest">
+                <methods>
+                    <include name="verifyBlogTitleLinksDisplay"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="[Positive] TrainingListPageTest">
+        <classes>
+            <class name="TrainingListPageTest">
+                <methods>
+                    <include name="verifyTrainingListSearchResultBySkill"></include>
+                    <include name="verifyErrorMessageOfEmptyTrainingListDisplayed"></include>
+                    <include name="verifySearchResultWithLocationCountryCityFilter"></include>
                 </methods>
             </class>
         </classes>
