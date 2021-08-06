@@ -1,6 +1,6 @@
 import constants.BusinessConfig;
 import data.CustomUser;
-import data.EmailsDataProvider;
+import dataproviders.EmailsDataProvider;
 import org.testng.annotations.Test;
 import pageObjects.businessObjects.HomeBO;
 import pageObjects.businessObjects.SignInBO;

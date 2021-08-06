@@ -1,7 +1,7 @@
 package pageObjects.businessObjects;
 
-import constants.LocationConfig;
-import constants.SkillsConfig;
+import constants.search_enum.LocationConfig;
+import constants.search_enum.SkillsConfig;
 import org.testng.Assert;
 import pageObjects.TrainingListPage;
 

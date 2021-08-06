@@ -1,6 +1,6 @@
 package pageObjects.businessObjects;
 
-import constants.BlogNavElements;
+import constants.nav_enum.BlogNavElements;
 import org.testng.asserts.SoftAssert;
 import pageObjects.BlogPage;
 

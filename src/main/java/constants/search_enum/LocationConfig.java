@@ -1,4 +1,4 @@
-package constants.searchenum;
+package constants.search_enum;
 
 public enum LocationConfig {
 

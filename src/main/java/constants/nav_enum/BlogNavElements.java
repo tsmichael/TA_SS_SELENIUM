@@ -1,4 +1,4 @@
-package constants;
+package constants.nav_enum;
 
 public enum BlogNavElements {
 

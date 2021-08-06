@@ -1,7 +1,7 @@
 package pageObjects;
 
 import constants.Language;
-import constants.NavElements;
+import constants.nav_enum.NavElements;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

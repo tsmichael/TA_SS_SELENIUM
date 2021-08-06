@@ -1,7 +1,7 @@
 package pageObjects;
 
-import constants.LocationConfig;
-import constants.SkillsConfig;
+import constants.search_enum.LocationConfig;
+import constants.search_enum.SkillsConfig;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;

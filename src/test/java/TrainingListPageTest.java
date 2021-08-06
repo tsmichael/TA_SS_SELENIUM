@@ -1,6 +1,6 @@
 import constants.BusinessConfig;
-import constants.LocationConfig;
-import constants.SkillsConfig;
+import constants.search_enum.LocationConfig;
+import constants.search_enum.SkillsConfig;
 import data.CustomUser;
 import org.testng.annotations.Test;
 import pageObjects.businessObjects.HomeBO;
