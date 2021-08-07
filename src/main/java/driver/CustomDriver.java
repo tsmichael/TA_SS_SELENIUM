@@ -2,6 +2,7 @@ package driver;
 
 import constants.ConstantConfig;
 import constants.DriverConfig;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -20,7 +21,7 @@ public class CustomDriver {
         if (instance == null) {
             instance = new CustomDriver();
             if (DriverConfig.CHROME_NAME.equals(driverConfig)) {
-                System.setProperty(DriverConfig.CHROME_NAME.getPath(), DriverConfig.CHROME_DRIVER_LOCATION.getPath());
+                WebDriverManager.chromedriver().setup();
                 webDriver = new ChromeDriver();
             }
             webDriver.manage().window().maximize();

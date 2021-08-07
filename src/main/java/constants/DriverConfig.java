@@ -2,8 +2,7 @@ package constants;
 
 public enum DriverConfig {
 
-    CHROME_NAME("webdriver.chrome.driver"),
-    CHROME_DRIVER_LOCATION("src/main/resources/chromedriver.exe");
+    CHROME_NAME("webdriver.chrome.driver");
 
     String path;
 
