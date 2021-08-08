@@ -25,7 +25,7 @@ git clone https://github.com/tsmichael/TA_SS_SELENIUM.git
     }
 }
 ```
-4. Run tests with (default test-suite is `testNg.xml`)
+4. Run tests with (default test-suite is `src/test/resources/testNg.xml`)
 
     ```bash
     mnv clean test
