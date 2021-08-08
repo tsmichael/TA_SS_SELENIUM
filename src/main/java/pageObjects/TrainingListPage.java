@@ -2,10 +2,12 @@ package pageObjects;
 
 import constants.search_enum.LocationConfig;
 import constants.search_enum.SkillsConfig;
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import tools.AllureLogger;
 
 import java.util.List;
 
@@ -37,8 +39,9 @@ public class TrainingListPage extends AbstractPage {
 
     private By emptyListMessage = By.xpath("//span[@ng-show]");
 
-    public TrainingListPage closeAllFilters() {
 
+    @Step("{method}: Closed all search filters")
+    public TrainingListPage closeAllFilters() {
         scrollToElement(getElement(searchContainer));
         if (isDisplayed(filterFieldCloseButtons)) {
             List<WebElement> closeButtons = getElements(filterFieldCloseButtons);
@@ -50,12 +53,15 @@ public class TrainingListPage extends AbstractPage {
         return this;
     }
 
+    @Step(": 'Search field' is clicked")
     public TrainingListPage clickSearchField() {
         getElementToClick(searchField).click();
         LOG.info("'Search Field' clicked");
         return this;
     }
 
+
+    @Step(": 'By Skills' tab clicked")
     public TrainingListPage clickSearchBySkillsButton() {
         getElement(searchBySkillsButton).click();
         scrollToElement(getElementPresence(fieldForScrollInSkills));
@@ -63,6 +69,7 @@ public class TrainingListPage extends AbstractPage {
         return this;
     }
 
+    @Step(": 'Locations' tab clicked")
     public TrainingListPage clickSearchByLocationsButton() {
         getElement(searchByLocationsButton).click();
         scrollToElement(getElementPresence(fieldForScrollInLists));
@@ -70,6 +77,8 @@ public class TrainingListPage extends AbstractPage {
         return this;
     }
 
+
+    @Step(": Checkbox with '{0}' clicked")
     public TrainingListPage clickSkillsCheckboxByName(SkillsConfig skillName) {
         String skill = skillName.getSkillName();
         String locator = String.format("//label[@class='location__not-active-label ng-binding'][normalize-space()='%s']", skill);
@@ -79,6 +88,7 @@ public class TrainingListPage extends AbstractPage {
         return this;
     }
 
+    @Step(": List item with '{0}' clicked")
     public TrainingListPage clickLocationsCountryItemByName(LocationConfig locationConfig) {
         String countryName = locationConfig.getCountryName();
         String locator = String.format("//ul[@class='location__countries-list-countries']//div[normalize-space()='%s']", countryName);
@@ -89,6 +99,7 @@ public class TrainingListPage extends AbstractPage {
 
     }
 
+    @Step(": Checkbox with '{0}' clicked")
     public TrainingListPage clickLocationsCityCheckboxByName(LocationConfig locationConfig) {
         String cityName = locationConfig.getCityName();
         String locator = String.format("//ul[@class='location__cities-list-cities ng-scope']//label[normalize-space()='%s']", cityName);

@@ -2,6 +2,7 @@ package pageObjects;
 
 import constants.Language;
 import constants.nav_enum.NavElements;
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -36,30 +37,36 @@ public class HomePage extends AbstractPage {
 
     private By acceptCookiesButton = By.className("footer-modal__button");
 
+    @Step("Proceeded to HomePage, running method: {method}")
     public HomePage proceedToHomePage() {
         proceedToPage(HOME_PAGE_URL.getPath());
         LOG.info(String.format("Proceeded to '%s' URL.", HOME_PAGE_URL.getPath()));
         return this;
     }
 
+    @Step("Proceeded to TrainingListPage, running method: {method}")
     public TrainingListPage proceedToTrainingListPage() {
         getElement(trainingList).click();
         LOG.info(String.format("Proceeded to '%s' URL.", NavElements.TRAINING_LIST.getLink()));
         return new TrainingListPage();
     }
 
+    @Step("Proceeded to BlogPage, running method: {method}")
     public BlogPage proceedToBlogPage() {
         getElement(blog).click();
         LOG.info(String.format("Proceeded to '%s' URL.", NavElements.BLOG.getLink()));
         return new BlogPage();
     }
 
+    @Step("Globe Icon clicked, running method: {method}")
     public HomePage clickGlobeIcon() {
         getElement(globeIcon).click();
         LOG.info("'Language choice' is opened");
         return this;
     }
 
+
+    @Step("'Sign In' button clicked, running method: {method}")
     public SignInPage clickSignInButton() {
         getElement(signInButton).click();
         LOG.info("'Sign IN' button clicked");
@@ -87,14 +94,15 @@ public class HomePage extends AbstractPage {
         }
         return item;
     }
-
+    @Step("Language item clicked, running method: {method}")
     public HomePage clickLanguageItem(Language language) {
         String lang = language.getLanguage();
         getLanguageElementByName(lang).click();
-        LOG.info(String.format("'%s' language is picked.", language));
+        LOG.info(String.format("'%s' language is picked.", lang));
         return this;
     }
 
+    @Step("Cookies button clicked, running method: {method}")
     public HomePage clickAcceptCookiesButton() {
         getElement(acceptCookiesButton).click();
         LOG.info(String.format("Button 'agree that we are spying on you' clicked"));

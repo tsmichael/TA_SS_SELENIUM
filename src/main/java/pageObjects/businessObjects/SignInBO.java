@@ -1,5 +1,6 @@
 package pageObjects.businessObjects;
 
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import pageObjects.SignInPage;
 import tools.Regex;
@@ -11,7 +12,7 @@ public class SignInBO {
     public SignInBO() {
         signInPage = new SignInPage();
     }
-
+    @Step("login user, running method: {method}")
     public HomeBO login(String email, String password) {
         signInPage.enterEmail(email)
                 .clickContinueButton()
@@ -64,15 +65,18 @@ public class SignInBO {
         Assert.assertFalse(signInPage.isDotSymbolPresentInEmail(), "'.' is present in email");
     }
 
+    @Step("checking that error message about incorrect credentials is displayed, running method: {method} ")
     public void verifyFailedLoginErrorMessageDisplayed() {
         Assert.assertTrue(signInPage.isLoginFailedErrorMessageDisplayed(),
                 "'Login failed' error message is not displayed");
     }
 
+    @Step("checking 'Continue' button is disabled, running method: {method}")
     public void verifyContinueButtonIsDisabled() {
         Assert.assertFalse(signInPage.isContinueButtonEnabled(), "'Continue Button' is ENABLED");
     }
 
+    @Step("checking 'Continue' button is enabled, running method: {method}")
     public void verifyContinueButtonIsEnabled() {
         Assert.assertTrue(signInPage.isContinueButtonEnabled(), "'Continue Button' is DISABLED");
     }

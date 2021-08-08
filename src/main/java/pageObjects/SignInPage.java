@@ -1,5 +1,6 @@
 package pageObjects;
 
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 
@@ -17,12 +18,15 @@ public class SignInPage extends AbstractPage {
 
     private By loginFailedErrorMessage = By.className("error-text");
 
+
+    @Step("Entered email, running method: {method}")
     public SignInPage enterEmail(String email) {
         getElement(emailInput).sendKeys(email);
         LOG.info("Entered email");
         return this;
     }
 
+    @Step("'Continue' button clicked, running method: {method}")
     public SignInPage clickContinueButton() {
         getElement(continueButton).click();
         LOG.info("'Continue' button clicked");
@@ -35,12 +39,15 @@ public class SignInPage extends AbstractPage {
         return isEnabled;
     }
 
+    @Step("Entered password, running method: {method}")
     public SignInPage enterPassword(String password) {
         getElement(passwordInput).sendKeys(password);
         LOG.info("Entered password");
         return this;
     }
 
+
+    @Step("'Sign In' button clicked, running method: {method}")
     public HomePage clickSignInButton() {
         getElement(signInButton).click();
         LOG.info("'Sign IN' button clicked");
