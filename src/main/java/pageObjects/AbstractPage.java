@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class AbstractPage {
 
@@ -71,5 +72,12 @@ public class AbstractPage {
         } catch (NoSuchElementException | TimeoutException e) {
             return false;
         }
+    }
+
+    public boolean isNotExist(By locator) {
+        CustomDriver.getDriver().manage().timeouts().implicitlyWait(ConstantConfig.IMPLICITLY_WAIT_ONE.getSeconds(), TimeUnit.SECONDS);
+        boolean isNotExist = CustomDriver.getDriver().findElements(locator).isEmpty();
+        CustomDriver.getDriver().manage().timeouts().implicitlyWait(ConstantConfig.IMPLICITLY_WAIT.getSeconds(), TimeUnit.SECONDS);
+        return isNotExist;
     }
 }

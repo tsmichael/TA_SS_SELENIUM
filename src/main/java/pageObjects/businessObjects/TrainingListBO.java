@@ -5,7 +5,7 @@ import constants.search_enum.SkillsConfig;
 import io.qameta.allure.Step;
 import org.testng.Assert;
 import pageObjects.TrainingListPage;
-import tools.AllureLogger;
+
 public class TrainingListBO {
 
     TrainingListPage trainingListPage;

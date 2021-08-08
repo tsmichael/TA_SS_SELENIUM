@@ -5,9 +5,7 @@ import constants.search_enum.SkillsConfig;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
-import tools.AllureLogger;
 
 import java.util.List;
 
@@ -42,7 +40,7 @@ public class TrainingListPage extends AbstractPage {
 
     @Step("{method}: Closed all search filters")
     public TrainingListPage closeAllFilters() {
-        scrollToElement(getElement(searchContainer));
+        scrollToElement(getElementPresence(searchContainer));
         if (isDisplayed(filterFieldCloseButtons)) {
             List<WebElement> closeButtons = getElements(filterFieldCloseButtons);
             for (WebElement button : closeButtons) {
@@ -126,27 +124,27 @@ public class TrainingListPage extends AbstractPage {
 
     public int getTrainingsListSizeByLocationName(String location) {
         int size = 0;
-        try {
+        if (!isNotExist(trainingListLocations)) {
             List<WebElement> courses = getElements(trainingListLocations);
             for (WebElement course : courses) {
                 if (course.getAttribute("outerText").toLowerCase().contains(location.toLowerCase())) {
                     size++;
                 }
             }
-        } catch (TimeoutException timeOutEx) {
-            size = 0;
+        } else {
+            LOG.info(String.format("Results of search not contains courses in '%s'", location));
         }
         return size;
     }
 
     public int getTrainingsListSizeWithMultiLocation() {
-        int size = 0;
-        try {
-            size = getElements(trainingListMultiLocations).size();
-        } catch (TimeoutException timeOutEx) {
-            size = 0;
+        int emptyList = 0;
+        if (isNotExist(trainingListMultiLocations)) {
+            LOG.info("Results of search not contains Multi Location courses");
+            return emptyList;
+        } else {
+            return getElements(trainingListMultiLocations).size();
         }
-        return size;
     }
 
     public boolean isEmptyListMessageIsDisplayed() {

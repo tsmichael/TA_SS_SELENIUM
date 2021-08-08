@@ -2,7 +2,9 @@ package constants.search_enum;
 
 public enum LocationConfig {
 
-    LVIV("Ukraine", "Lviv");
+    LVIV("Ukraine", "Lviv"),
+    TASHKENT("Uzbekistan", "Tashkent"),
+    GEORGIA("Georgia", "Tbilisi");
 
     String countryName;
     String cityName;
