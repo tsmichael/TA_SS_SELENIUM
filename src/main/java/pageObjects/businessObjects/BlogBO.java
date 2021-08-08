@@ -14,13 +14,26 @@ public class BlogBO {
         blogPage = new BlogPage();
     }
 
-    @Step("checking all Blog Titles is displayed, running method: {method}")
-    public void verifyAllBlogLinksIsDisplayed() {
+    @Step("checking all Blog Titles is displayed by name, running method: {method}")
+    public void verifyAllBlogLinksIsDisplayedByName() {
         SoftAssert softAssert = new SoftAssert();
         for (BlogNavElements link : BlogNavElements.values()) {
-            boolean isDisplayed = blogPage.isDisplayed(blogPage.getBlogTitleLocatorByName(link.toString()));
-            softAssert.assertTrue(isDisplayed, String.format("'%s' title is NOT displayed", link));
-            AllureLogger.info(String.format("'%s' title is displayed - [%b]",link.getName(),isDisplayed));
+            String linkName = link.getName();
+            boolean isDisplayed = blogPage.isDisplayed(blogPage.getBlogTitleLocatorByName(linkName));
+            softAssert.assertTrue(isDisplayed, String.format("'%s' title is NOT displayed", linkName));
+            AllureLogger.info(String.format("'%s' title-name is displayed - [%b]", linkName, isDisplayed));
+        }
+        softAssert.assertAll();
+    }
+
+    @Step("checking all Blog Titles is displayed by link, running method: {method}")
+    public void verifyAllBlogLinksIsDisplayedByLink() {
+        SoftAssert softAssert = new SoftAssert();
+        for (BlogNavElements link : BlogNavElements.values()) {
+            String linkLink = link.getLink();
+            boolean isDisplayed = blogPage.isDisplayed(blogPage.getBlogTitleLocatorByLink(linkLink));
+            softAssert.assertTrue(isDisplayed, String.format("'%s' link is NOT displayed", linkLink));
+            AllureLogger.info(String.format("'%s' title-link is displayed - [%b]", linkLink, isDisplayed));
         }
         softAssert.assertAll();
     }

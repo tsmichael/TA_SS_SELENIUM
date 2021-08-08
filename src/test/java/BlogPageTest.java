@@ -4,12 +4,20 @@ import pageObjects.businessObjects.HomeBO;
 
 public class BlogPageTest extends BaseTest {
 
-    @Test
-    public void verifyBlogTitleLinksDisplay() {
+    @Test(description = "Verify Blog Titles is displayed by their names")
+    public void verifyBlogTitleLinksDisplayByName() {
         new HomeBO()
                 .proceedToHomePage()
                 .chooseLanguageByName(Language.ENGLISH, Language.ENGLISH)
                 .proceedToBlogPage()
-                .verifyAllBlogLinksIsDisplayed();
+                .verifyAllBlogLinksIsDisplayedByName();
+    }
+
+    @Test(description = "Verify Blog titles is displayed by their links")
+    public void verifyBlogTitleLinksDisplayByLink() {
+        new HomeBO()
+                .proceedToHomePage()
+                .proceedToBlogPage()
+                .verifyAllBlogLinksIsDisplayedByLink();
     }
 }

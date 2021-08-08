@@ -12,4 +12,10 @@ public class BlogPage extends AbstractPage {
         By blogTitle = By.xpath(str);
         return blogTitle;
     }
+
+    public By getBlogTitleLocatorByLink(String link) {
+        String str = String.format("//a[contains(@href,'%s')]/span", link);
+        By blogTitle = By.xpath(str);
+        return blogTitle;
+    }
 }
