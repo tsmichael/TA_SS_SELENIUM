@@ -29,7 +29,8 @@
         <classes>
             <class name="BlogPageTest">
                 <methods>
-                    <include name="verifyBlogTitleLinksDisplay"></include>
+                    <include name="verifyBlogTitleLinksDisplayByName"></include>
+                    <include name="verifyBlogTitleLinksDisplayByTitle"></include>
                 </methods>
             </class>
         </classes>
