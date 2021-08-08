@@ -30,7 +30,7 @@
             <class name="BlogPageTest">
                 <methods>
                     <include name="verifyBlogTitleLinksDisplayByName"></include>
-                    <include name="verifyBlogTitleLinksDisplayByTitle"></include>
+                    <include name="verifyBlogTitleLinksDisplayByLink"></include>
                 </methods>
             </class>
         </classes>
